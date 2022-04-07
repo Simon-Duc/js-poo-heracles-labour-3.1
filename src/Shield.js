@@ -1,5 +1,5 @@
 class Shield {
-  constructor(name, protection = 10, image) {
+  constructor(name, protection, image) {
     this.name = name;
     this.protection = protection;
     this.image = image;
