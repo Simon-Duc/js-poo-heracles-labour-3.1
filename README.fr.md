@@ -5,7 +5,7 @@ Prérequis : cloner ce *repository*.
 
 > Pour commencer, réalisons un petit tour du propriétaire. Dans cette nouvelle épreuve, nous allons intégrer une interface HTML pour améliorer notre jeu.
 Tu trouveras donc un fichier *index.html* et un fichier *style.css* lié. En bas du index.html, tu trouveras les imports des différents fichiers *js*. Attention, l'ordre est important.
-Dans le fichier *index.html*, il n'y a presque rien. Les templates html sont préparés et injectés directement, au fur et à mesure de l'implémentation des objets. Tu peux les parcourir mais n'a pas besoin d'y toucher pour le fonctionnement du workshop. Tu seras par contre amener à consommer certaines de ses fonctionnalités.
+Dans le fichier *index.html*, il n'y a presque rien. Les templates html sont préparés et injectés directement, au fur et à mesure de l'implémentation des objets. Tu peux les parcourir mais tu n'as pas besoin d'y toucher pour le fonctionnement du workshop. Tu seras par contre amené à consommer certaines de ces fonctionnalités.
 
 > La zone `Hero` du HTML est directement crée à partir du *index.js (ligne 18 à 20)*.
 
@@ -20,13 +20,13 @@ Un nouvelle épreuve attend notre champion, tuer les oiseaux monstrueux du lac S
 - Créé deux classes `Hero` et `Monster`, chacune héritant de `Fighter`. Les propriétés communes aux deux vont rester dans Fighter, celles propres aux `Hero` (`Weapon` et `Shield`) vont passer dans `Hero`. La classe `Monster` ne fait pour l'instant qu'étendre `Fighter` sans autre modification.
 - De plus, les méthodes `getDamage()` et `getDefense()` ont un comportement différent entre un monstre et héros. Dans le premier cas, seules la force et la dextérité sont prises en compte, dans le cas du héros, les valeurs retournées prennent aussi en compte les caractéristiques des armes et armures. Les méthodes `getDamage()` et `getDefense()` doivent donc exister dans `Fighter` pour refléter le cas le plus simple, et être réécrites dans `Hero` pour prendre en compte les équipement (ce qui correspond normalement au code actuel de `Fighter` à la fin de l'atelier précédent).
 
-- Dans *index.js*, modifier les instanciations pour prendre en compte ses nouvelles classes, `Hero` pour Héraclès et `Monster` pour les 3 *birds*. (Ligne 3, 14, 15, 16)
+- Dans *index.js*, modifier les instanciations pour prendre en compte ces nouvelles classes, `Hero` pour Héraclès et `Monster` pour les 3 *birds*. (Ligne 3, 14, 15, 16)
 
 ## Arène
 
 > Un autre changement de conception apparaît avec cette nouvelle épreuve. Ici, Héraclès ne se bat plus contre un unique monstre, mais contre une multitude. Pour l'instant, un Fighter n'a pas de méthode qui lui permette de connaître tous les autres Fighter du combat. Il serait possible de créer une propriété `adversaries` dans `Fighter`, mais chaque Fighter devrait contenir tous les autres, ce qui serait assez redondant et ne permettrait pas d'avoir facilement une vue d'ensemble.
 
-> Une meilleure solution est de créer une nouvelle classe `Arena` qui contiendrait tous les `Fighter` ainsi que des méthodes pour les manipuler (les faire se combattre, les déplacer dans l'arène, etc.). De plus, cette arène peut servir de support pour la msie en place d'une carte sur laquelle placer les `Fighter` et ajouter ainsi du positionnement au gameplay de notre jeu.
+> Une meilleure solution est de créer une nouvelle classe `Arena` qui contiendrait tous les `Fighter` ainsi que des méthodes pour les manipuler (les faire se combattre, les déplacer dans l'arène, etc.). De plus, cette arène peut servir de support pour la mise en place d'une carte sur laquelle placer les `Fighter` et ajouter ainsi du positionnement au gameplay de notre jeu.
 
 - Créé une class `Arena` contenant les propriétés `monsters` (un tableau d'objets `Monster`) et `hero` (un objet `Hero`). Par simplification, on partira du principe que nous avons forcément un unique héro dans une arène et un ou plusieurs monstres.
 Créé également un `constructor()` qui prendra en paramètre un héros et un tableau de monstres. Ajoute également une propriété `size` (integer avec la valeur 10 par défaut) qui indiquera la taille de l'arène.
