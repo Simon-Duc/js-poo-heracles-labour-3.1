@@ -24,12 +24,19 @@ fighterHtml.createTemplate(Heracles, bird1);
 
 
 /** Do not touch => allow the opening / closing of the hero information section */
+let openingModal = true;
 const openModal = () => {
-  const heroInfo = new HeroInfoTemplate('heroInfo');
-  heroInfo.createHeroInfoTemplate(Heracles);
-  document.getElementById("heroInfo").style.display = "flex";
+  if (openingModal) {
+    const heroInfo = new HeroInfoTemplate('heroInfo');
+    heroInfo.createHeroInfoTemplate(Heracles);
+    document.getElementById("heroInfo").style.display = "flex";
+    openingModal = false;
+  }
 }
 
 const closeModal = () => {
-  document.getElementById("heroInfo").style.display = "none";
+  const heroInfo = document.getElementById("heroInfo");
+  heroInfo.style.display = "none";
+  heroInfo.innerHTML = "";
+  openingModal = true;
 }

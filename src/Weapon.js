@@ -5,5 +5,3 @@ class Weapon {
     this.image = image;
   }
 }
-
-module.exports = Weapon;
