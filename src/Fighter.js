@@ -1,14 +1,14 @@
 const MAX_LIFE = 100
 
 class Fighter {
-  constructor(name, strength, dexterity, image) {
+  constructor(name, strength, dexterity, image, x, y) {
     this.name = name;
     this.strength = strength;
     this.dexterity = dexterity;
     this.life = MAX_LIFE;
     this.image = image;
-    this.weapon = null;
-    this.shield = null;
+    this.x = x;
+    this.y = y;
   }
 
   /**
@@ -27,9 +27,7 @@ class Fighter {
    * @returns
    */
   getDamage() {
-    return this.weapon ?
-      this.strength + this.weapon.damage :
-      this.strength;
+    return this.strength;
   }
 
 
@@ -38,9 +36,7 @@ class Fighter {
    * @returns
    */
   getDefense() {
-    return this.shield ?
-      this.dexterity + this.shield.protection :
-      this.dexterity;
+    return this.dexterity;
   }
 
   /**
@@ -61,4 +57,3 @@ class Fighter {
     return this.life > 0
   }
 }
-
